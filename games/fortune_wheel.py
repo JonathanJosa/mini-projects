@@ -83,13 +83,13 @@ def getNumberBetween(prompt, min, max):
         userinp = input('{}\n{}'.format(errmessage, prompt))
 
 def spinWheel():
-    with open("data/wheel.json", 'r') as f:
-        wheel = json.loads(f.read())
+    with open("./../data/wheel.json", 'r') as f:
+        wheel = json.loads(f.read(), strict=False)
         return random.choice(wheel)
 
 def getRandomCategoryAndPhrase():
-    with open("data/phrases.json", 'r') as f:
-        phrases = json.loads(f.read())
+    with open("./../data/phrases.json", 'r') as f:
+        phrases = json.loads(f.read(), strict=False)
 
         category = random.choice(list(phrases.keys()))
         phrase   = random.choice(phrases[category])
@@ -115,13 +115,13 @@ print('WHEEL OF PYTHON')
 print('='*15)
 print('')
 
-num_human = getNumberBetween('How many human players?', 0, 10)
+num_human = getNumberBetween('How many human players? ', 0, 10)
 
-human_players = [WOFHumanPlayer(input('Enter the name for human player #{}'.format(i+1))) for i in range(num_human)]
-num_computer = getNumberBetween('How many computer players?', 0, 10)
+human_players = [WOFHumanPlayer(input('Enter the name for human player #{} '.format(i+1))) for i in range(num_human)]
+num_computer = getNumberBetween('How many computer players? ', 0, 10)
 
 if num_computer >= 1:
-    difficulty = getNumberBetween('What difficulty for the computers? (1-10)', 1, 10)
+    difficulty = getNumberBetween('What difficulty for the computers? (1-10) ', 1, 10)
 
 computer_players = [WOFComputerPlayer('Computer {}'.format(i+1), difficulty) for i in range(num_computer)]
 players = human_players + computer_players

@@ -1,7 +1,7 @@
 import csv
 import math
 
-csvfile = open('data/ulabox.csv', newline='')
+csvfile = open('./../data/ulabox.csv', newline='')
 file = csv.DictReader(csvfile)
 lineas = [linea for linea in file]
 print("Longitud del archivo: " + str(len(lineas)) + " Lineas")
