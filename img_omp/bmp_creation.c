@@ -56,7 +56,7 @@ void img_create(){
 }
 
 int main(){
-  int img_tests = 12; //Static number
+  int img_tests = 20; //Static number
 
   omp_set_num_threads(img_tests);
   #pragma omp parallel
